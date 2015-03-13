@@ -21,6 +21,12 @@ describe ("Frame", function() {
       expect(frame.rollTwo).toBe(4);
     });
 
+    it("can calculate score after 2 rolls", function() {
+      frame = new Frame;
+      frame.roll(5, 4);
+      expect(frame.score).toBe(9);
+    });
+
   });
 
 });
