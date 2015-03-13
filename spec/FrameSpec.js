@@ -10,8 +10,15 @@ describe ("Frame", function() {
 
     it("can record first roll", function() {
       frame = new Frame;
-      frame.rollOne(5);
+      frame.roll(5);
       expect(frame.rollOne).toBe(5);
+    });
+
+    it("can record second roll", function() {
+      frame = new Frame;
+      frame.roll(5, 4);
+      expect(frame.rollOne).toBe(5);
+      expect(frame.rollTwo).toBe(4);
     });
 
   });

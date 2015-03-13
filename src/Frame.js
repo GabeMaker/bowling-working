@@ -2,8 +2,9 @@ var Frame = function() {
   this.score = 0;
 };
 
-Frame.prototype.rollOne = function(roll) {
-  this.rollOne = roll;
+Frame.prototype.roll = function(roll1, roll2) {
+  this.rollOne = roll1;
+  this.rollTwo = roll2;
 };
 
 // Frame.prototype.score = function() {
