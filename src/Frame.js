@@ -29,5 +29,3 @@ Frame.prototype.isStrike = function() {
     return false;
   }
 };
-
-// test
