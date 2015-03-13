@@ -27,6 +27,19 @@ describe ("Frame", function() {
       expect(frame.score).toBe(9);
     });
 
+    it("can recognise when a spare has been scored", function() {
+      frame = new Frame;
+      frame.roll(5,5);
+      expect(frame.isSpare()).toBe(true);
+      expect(frame.isStrike()).toBe(false);
+    });
+
+    it("can recognise when a strike has been scored", function() {
+      frame = new Frame;
+      frame.roll(10,0);
+      expect(frame.isSpare()).toBe(false);
+      expect(frame.isStrike()).toBe(true);
+    });
   });
 
 });

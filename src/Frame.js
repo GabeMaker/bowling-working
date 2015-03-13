@@ -13,3 +13,19 @@ Frame.prototype.roll = function(roll1, roll2) {
 Frame.prototype.updateScore = function() {
   this.score = this.rollOne + this.rollTwo;
 };
+
+Frame.prototype.isSpare = function() {
+  if (this.score == 10 && this.rollTwo > 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+Frame.prototype.isStrike = function() {
+  if (this.score == 10 && this.rollTwo === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
