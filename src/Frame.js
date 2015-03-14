@@ -15,7 +15,7 @@ Frame.prototype.updateScore = function() {
 };
 
 Frame.prototype.isSpare = function() {
-  if (this.score == 10 && this.rollTwo > 0) {
+  if (this.score === 10 && this.rollTwo > 0) {
     return true;
   } else {
     return false;
