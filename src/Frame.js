@@ -3,9 +3,13 @@ var Frame = function() {
   // this.rollOne = 0;
   // this.rollTwo = 0;
 
-  newFunction = function(param) {
-    // function conent;
-  };
+  // newFunction = function(param) {
+  //   // function conent;
+  // };
+
+  // var addBonus = function(bonus) {
+
+  // };
 
 };
 
@@ -13,6 +17,10 @@ Frame.prototype.roll = function(roll1, roll2) {
   this.rollOne = roll1;
   this.rollTwo = roll2 || 0;
   this.updateScore();
+};
+
+Frame.prototype.addBonus = function(bonus) {
+  this.score += bonus;
 };
 
 Frame.prototype.updateScore = function() {

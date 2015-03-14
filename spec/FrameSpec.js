@@ -41,10 +41,12 @@ describe ("Frame", function() {
       expect(frame.isStrike()).toBe(true);
     });
 
-    // it("can add the score from future rounds as a bonus". function() {
-    //   frame = new Frame;
-    //   frame.roll(10);
-    // });
+    it("can add the score from future rounds as a bonus", function() {
+      frame = new Frame;
+      frame.roll(9,1);
+      frame.addBonus(8); // this represents the first roll of the next frame
+      expect(frame.score).toBe(18);
+    });
   });
 
 });
