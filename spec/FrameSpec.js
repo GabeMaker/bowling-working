@@ -36,10 +36,15 @@ describe ("Frame", function() {
 
     it("can recognise when a strike has been scored", function() {
       frame = new Frame;
-      frame.roll(10,0);
+      frame.roll(10);
       expect(frame.isSpare()).toBe(false);
       expect(frame.isStrike()).toBe(true);
     });
+
+    // it("can add the score from future rounds as a bonus". function() {
+    //   frame = new Frame;
+    //   frame.roll(10);
+    // });
   });
 
 });

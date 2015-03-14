@@ -2,11 +2,16 @@ var Frame = function() {
   this.score = 0;
   // this.rollOne = 0;
   // this.rollTwo = 0;
+
+  newFunction = function(param) {
+    // function conent;
+  };
+
 };
 
 Frame.prototype.roll = function(roll1, roll2) {
   this.rollOne = roll1;
-  this.rollTwo = roll2;
+  this.rollTwo = roll2 || 0;
   this.updateScore();
 };
 
