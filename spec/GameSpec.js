@@ -83,9 +83,8 @@ describe ("Game", function() {
     testFrame7.roll(7, 3);
     testFrame8.roll(6, 4);
     testFrame9.roll(10);
-    testFrame10.roll(2, 8);
-
-    testSpareBonus.roll(6, 0);
+    testFrame10.roll(2, 7);
+    // testSpareBonus.roll(6, 0);
     game.addFrame(testFrame1);
     game.addFrame(testFrame2);
     game.addFrame(testFrame3);
@@ -93,11 +92,13 @@ describe ("Game", function() {
     game.addFrame(testFrame5);
     game.addFrame(testFrame6);
     game.addFrame(testFrame7);
+
     game.addFrame(testFrame8);
+
     game.addFrame(testFrame9);
     game.addFrame(testFrame10);
     // game.addFrame(testSpareBonus);
-    expect(game.totalScore()).toBe(131);
+    expect(game.totalScore()).toBe(125);
   });
 
 
