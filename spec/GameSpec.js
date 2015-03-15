@@ -32,6 +32,7 @@ describe ("Game", function() {
     game.addFrame(frame1);
     game.addFrame(frame2);
     expect(frame1.score).toBe(18);
+    expect(game.totalScore()).toBe(27);
   });
 
   it("can add bonuses when a strike has been rolled", function() {
@@ -42,6 +43,23 @@ describe ("Game", function() {
     game.addFrame(frame1);
     game.addFrame(frame2);
     expect(frame1.score).toBe(19);
+    expect(game.totalScore()).toBe(28);
+  });
+
+  it("can calculate the impact of consecutive strikes correctly", function() {
+    strikeFrame = new Frame;
+    strikeFrame.roll(10);
+    strikeFrame2 = new Frame;
+    strikeFrame2.roll(10);
+    eightFrame = new Frame;
+    eightFrame.roll(5,3);
+    game.addFrame(strikeFrame);
+    game.addFrame(strikeFrame2);
+    game.addFrame(eightFrame);
+    expect(game.totalScore()).toBe(51);
+
+
+
   });
 
 });

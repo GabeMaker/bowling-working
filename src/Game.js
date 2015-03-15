@@ -1,6 +1,7 @@
 var Game = function() {
 
   this.allFrames = [];
+  this.IsBonusPending = false;
 
 };
 
@@ -31,8 +32,15 @@ Game.prototype.checkForSpare = function(currentFrame) {
 Game.prototype.checkForStrike = function(currentFrame) {
   var frames = this.allFrames;
   var lastFrame = frames[frames.length - 1];
+  var secondLastFrame = frames[frames.length - 2];
   if (lastFrame.isStrike()) {
     lastFrame.addBonus(currentFrame.rollOne + currentFrame.rollTwo);
+    if (this.IsBonusPending) {
+      secondLastFrame.addBonus(currentFrame.rollOne);
+    }
+    if (currentFrame.isStrike) {
+      this.IsBonusPending = true;
+    }
   }
 };
 
