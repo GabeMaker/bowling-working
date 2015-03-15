@@ -1,8 +1,5 @@
 var Game = function() {
-
   this.allFrames = [];
-  this.IsBonusPending = false;
-
 };
 
 Game.prototype.addFrame = function(frame) {
@@ -18,7 +15,6 @@ Game.prototype.totalScore = function() {
   var frames = this.allFrames;
   for (var i = 0; i < frames.length; ++i) {
     result += frames[i].score;
-    console.log(frames[i]);
   }
   return result;
 };
@@ -30,24 +26,21 @@ Game.prototype.checkForSpare = function(currentFrame) {
 
   if (lastFrame.isSpare()) {
     lastFrame.addBonus(currentFrame.rollOne);
-    // if (this.IsBonusPending) {
-    // secondLastFrame.addBonus(currentFrame.rollOne);
-    // this.IsBonusPending = false;
-    // }
   }
 
 Game.prototype.checkForStrike = function(currentFrame) {
   var frames = this.allFrames;
   var lastFrame = frames[frames.length - 1];
-  var secondLastFrame = frames[frames.length - 2];
+  var secondLastFrame = frames[frames.length - 2] || [];
+
   if (lastFrame.isStrike()) {
     lastFrame.addBonus(currentFrame.rollOne + currentFrame.rollTwo);
-    if (this.IsBonusPending) {
+  }
+
+  if (frames.length > 1) {
+    if (lastFrame.isStrike()) {
+      console.log("hello");
       secondLastFrame.addBonus(currentFrame.rollOne);
-      this.IsBonusPending = false
-    }
-    if (currentFrame.isStrike) {
-      this.IsBonusPending = true;
     }
   }
 };
