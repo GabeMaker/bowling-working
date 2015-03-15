@@ -92,9 +92,7 @@ describe ("Game", function() {
     game.addFrame(testFrame5);
     game.addFrame(testFrame6);
     game.addFrame(testFrame7);
-
     game.addFrame(testFrame8);
-
     game.addFrame(testFrame9);
     game.addFrame(testFrame10);
     // game.addFrame(testSpareBonus);

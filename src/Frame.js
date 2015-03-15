@@ -1,15 +1,5 @@
 var Frame = function() {
   this.score = 0;
-  // this.rollOne = 0;
-  // this.rollTwo = 0;
-
-  // newFunction = function(param) {
-  //   // function conent;
-  // };
-
-  // var addBonus = function(bonus) {
-
-  // };
 
 };
 
@@ -28,7 +18,7 @@ Frame.prototype.updateScore = function() {
 };
 
 Frame.prototype.isSpare = function() {
-  if (this.score === 10 && this.rollTwo > 0) {
+  if (this.rollOne + this.rollTwo === 10 && this.rollTwo > 0) {
     return true;
   } else {
     return false;
@@ -36,7 +26,7 @@ Frame.prototype.isSpare = function() {
 };
 
 Frame.prototype.isStrike = function() {
-  if (this.score === 10 && this.rollTwo === 0) {
+  if (this.rollOne + this.rollTwo === 10 && this.rollTwo === 0) {
     return true;
   } else {
     return false;

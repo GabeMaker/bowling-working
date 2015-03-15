@@ -15,6 +15,7 @@ Game.prototype.totalScore = function() {
   var frames = this.allFrames;
   for (var i = 0; i < frames.length; ++i) {
     result += frames[i].score;
+    console.log
   }
   return result;
 };
@@ -38,8 +39,7 @@ Game.prototype.checkForStrike = function(currentFrame) {
   }
 
   if (frames.length > 1) {
-    if (lastFrame.isStrike()) {
-      console.log("hello");
+    if (secondLastFrame.isStrike() && lastFrame.isStrike()) {
       secondLastFrame.addBonus(currentFrame.rollOne);
     }
   }
