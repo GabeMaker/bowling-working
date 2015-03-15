@@ -5,7 +5,9 @@ var Game = function() {
 };
 
 Game.prototype.addFrame = function(frame) {
-  this.checkForSpare();
+  if (this.allFrames.length > 0) {
+    this.checkForSpare(frame);
+  }
   this.allFrames.push(frame);
 };
 
@@ -18,14 +20,11 @@ Game.prototype.totalScore = function() {
   return result;
 };
 
-Game.prototype.checkForSpare = function() {
+Game.prototype.checkForSpare = function(currentFrame) {
   var frames = this.allFrames;
   var lastFrame = frames[frames.length - 1];
-  console.log(frames.length);
-  if (frames.length > 0) {
-    if (lastFrame.isSpare()) {
-      lastFrame.addBonus(5);
-    }
+  if (lastFrame.isSpare()) {
+    lastFrame.addBonus(currentFrame.rollOne);
   }
 
 };

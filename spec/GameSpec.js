@@ -28,9 +28,9 @@ describe ("Game", function() {
     frame1 = new Frame;
     frame2 = new Frame;
     frame1.roll(5,5);
-    frame2.roll(5,3);
+    frame2.roll(8,1);
     game.addFrame(frame1);
-    game.addFrame(frame1);
-    expect(frame1.score).toBe(15);
+    game.addFrame(frame2);
+    expect(frame1.score).toBe(18);
   });
 });
