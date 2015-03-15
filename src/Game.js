@@ -37,6 +37,7 @@ Game.prototype.checkForStrike = function(currentFrame) {
     lastFrame.addBonus(currentFrame.rollOne + currentFrame.rollTwo);
     if (this.IsBonusPending) {
       secondLastFrame.addBonus(currentFrame.rollOne);
+      this.IsBonusPending = false
     }
     if (currentFrame.isStrike) {
       this.IsBonusPending = true;
