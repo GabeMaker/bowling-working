@@ -15,7 +15,9 @@ Game.prototype.totalScore = function() {
   var frames = this.allFrames;
   for (var i = 0; i < frames.length; ++i) {
     result += frames[i].score;
-    console.log
+    if (i > 9) {
+      result -= frames[i].score;
+    }
   }
   return result;
 };
@@ -28,11 +30,12 @@ Game.prototype.checkForSpare = function(currentFrame) {
   if (lastFrame.isSpare()) {
     lastFrame.addBonus(currentFrame.rollOne);
   }
+};
 
 Game.prototype.checkForStrike = function(currentFrame) {
   var frames = this.allFrames;
   var lastFrame = frames[frames.length - 1];
-  var secondLastFrame = frames[frames.length - 2] || [];
+  var secondLastFrame = frames[frames.length - 2];
 
   if (lastFrame.isStrike()) {
     lastFrame.addBonus(currentFrame.rollOne + currentFrame.rollTwo);
@@ -45,4 +48,3 @@ Game.prototype.checkForStrike = function(currentFrame) {
   }
 };
 
-};

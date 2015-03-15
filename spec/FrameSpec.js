@@ -44,15 +44,15 @@ describe ("Frame", function() {
     it("can add the score from the next roll after a spare as a bonus", function() {
       frame = new Frame;
       frame.roll(9,1);
-      frame.addBonus(8); // this represents the first roll of the next frame
+      frame.addBonus(8);
       expect(frame.score).toBe(18);
     });
 
     it("can add the score from the 2 rolls after a strike as a bonus", function() {
       frame = new Frame;
       frame.roll(10);
-      frame.addBonus(8); // this represents the first roll of the next frame
-      frame.addBonus(2); // second roll
+      frame.addBonus(8);
+      frame.addBonus(2);
       expect(frame.score).toBe(20);
     });
   });
