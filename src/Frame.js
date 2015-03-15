@@ -36,7 +36,7 @@ Frame.prototype.isSpare = function() {
 };
 
 Frame.prototype.isStrike = function() {
-  if (this.score == 10 && this.rollTwo === 0) {
+  if (this.score === 10 && this.rollTwo === 0) {
     return true;
   } else {
     return false;

@@ -33,4 +33,15 @@ describe ("Game", function() {
     game.addFrame(frame2);
     expect(frame1.score).toBe(18);
   });
+
+  it("can add bonuses when a strike has been rolled", function() {
+    frame1 = new Frame;
+    frame2 = new Frame;
+    frame1.roll(10);
+    frame2.roll(8,1);
+    game.addFrame(frame1);
+    game.addFrame(frame2);
+    expect(frame1.score).toBe(19);
+  });
+
 });

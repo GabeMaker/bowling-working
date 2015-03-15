@@ -7,6 +7,7 @@ var Game = function() {
 Game.prototype.addFrame = function(frame) {
   if (this.allFrames.length > 0) {
     this.checkForSpare(frame);
+    this.checkForStrike(frame);
   }
   this.allFrames.push(frame);
 };
@@ -26,5 +27,13 @@ Game.prototype.checkForSpare = function(currentFrame) {
   if (lastFrame.isSpare()) {
     lastFrame.addBonus(currentFrame.rollOne);
   }
+
+Game.prototype.checkForStrike = function(currentFrame) {
+  var frames = this.allFrames;
+  var lastFrame = frames[frames.length - 1];
+  if (lastFrame.isStrike()) {
+    lastFrame.addBonus(currentFrame.rollOne + currentFrame.rollTwo);
+  }
+};
 
 };
