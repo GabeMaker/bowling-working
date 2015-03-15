@@ -23,4 +23,14 @@ describe ("Game", function() {
     game.addFrame(frame2);
     expect(game.totalScore()).toEqual(16);
   });
+
+  it("can add bonuses when a spare has been rolled previously", function() {
+    frame1 = new Frame;
+    frame2 = new Frame;
+    frame1.roll(5,5);
+    frame2.roll(5,3);
+    game.addFrame(frame1);
+    game.addFrame(frame1);
+    expect(frame1.score).toBe(15);
+  });
 });
