@@ -15,14 +15,12 @@ describe ("Game", function() {
   });
 
   it("can calculate total score of frames added", function() {
-    frame1 = jasmine.createSpyObj('frame', ['score']);
-    frame1.score.andCallFake(function() {
-      return 18;
-    });
+    frame1 = new Frame;
+    frame2 = new Frame;
+    frame1.roll(5,2);
+    frame2.roll(6,3);
     game.addFrame(frame1);
-    expect(game.totalScore()).toEqual(18);
-
-    // look up spies
-
+    game.addFrame(frame2);
+    expect(game.totalScore()).toEqual(16);
   });
 });
